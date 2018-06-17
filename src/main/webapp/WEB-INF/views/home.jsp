@@ -21,13 +21,13 @@
 			});
 		});
 
-		$(".close").click(function() {
+		$("#close").click(function() {
 			$("#myModal").css({
 				"display" : "none"
 			});
 		});
 
-		$("html").click(function(event) {
+		$("#ok").click(function(event) {
 			if (event.target.id === "myModal") {
 				$("#myModal").css({
 					"display" : "none"
@@ -40,11 +40,11 @@
 </script>
 
 <style type="text/css">
-.modal {
+
+.modalLayer {
 	display: none; /* Hidden by default */
 	z-index: 1; /* Sit on top */
 	position: absolute;
-	padding-top: 100px; /* Location of the box */
 	left: 0;
 	top: 0;
 	width: 100%; /* Full width */
@@ -53,17 +53,19 @@
 	background-color: rgb(0, 0, 0); /* Fallback color */
 	background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 	text-align: center;
-	vertical-align: middle;
 }
 
-/* Modal Content */
-.modal .modal-content {
+.modal-content {
+	display: inline-block;
 	background-color: #fefefe;
-	margin: auto;
 	padding: 20px;
 	border: 1px solid #888;
-	width: 30%;
+}
+
+.blank {
 	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
 }
 
 .layer {
@@ -75,25 +77,20 @@
 	height: 100%
 }
 
-.layer table {
+table {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
 }
 
-.layer tbody {
+tbody {
 	display: inline-block;
 }
 
-.layer #buttonGroup {
+#buttonGroup {
 	display: inline-block;
 }
 
-input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button
-	{
-	-webkit-appearance: none;
-	margin: 0;
-}
 </style>
 <title>Insert title here</title>
 </head>
@@ -103,7 +100,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 			<tbody class="loginLayer">
 				<tr>
 					<td>ID</td>
-					<td><input id="staffNum" type="number"
+					<td><input id="staffNum" type="text"
 						placeholder="간사번호를 입력하세요"></td>
 				</tr>
 				<tr>
@@ -117,18 +114,18 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 			</tbody>
 		</table>
 	</div>
-	
-	<div id="myModal" class="modal">
+
+	<div id="myModal" class="modalLayer">
 		<!-- Modal content -->
 		<div id="modal-content" class="modal-content">
 			<table>
 				<tbody>
 					<tr>
 						<th>간사번호</th>
-						<td><input id="createStaffNum" type="number"></td>
+						<td><input id="createStaffNum" type="text"></td>
 					</tr>
 					<tr>
-						<th>이름</th>
+						<th>이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름</th>
 						<td><input id="createStaffName" type="text"></td>
 					</tr>
 					<tr>
@@ -136,15 +133,17 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 						<td><input id="createPassword" type="password"></td>
 					</tr>
 					<tr>
-						<th>핸드폰</th>
+						<th>핸&nbsp;드&nbsp;폰</th>
 						<td><input id="createStaffPhone" type="number"></td>
+					</tr>
+					<tr id="buttonGroup">
+						<td><button id="ok">확인</button></td>
+						<td><button id="close">취소</button></td>
 					</tr>
 				</tbody>
 			</table>
-			<button id="ok">확인</button>
-			<button id="close">취소</button>
 		</div>
+		<span class="blank"></span>
 	</div>
-
 </body>
 </html>
